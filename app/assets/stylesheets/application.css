@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+nav {
+  transition: .3s;
+}
+
+nav:hover {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.692);
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(31, 31, 31);
+  transition: .3s;
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.author_div img {
+  width: 250px;
+  float: left;
+  margin-right: 15px;
+}
+
+.home_div img {
+  width: 100%;
+}
+
+.clear {
+  clear: both;
+  margin-top: 180px;
+}

@@ -29,6 +29,10 @@ J5 - sera consacré à l'identification des potins
 
 → Ce projet est codé en Ruby et Ruby On Rails, avec PostgreSQL.
 
+## Base de donnée ?
+![Screenshot from 2020-05-04 22-45-23](https://user-images.githubusercontent.com/59894954/81011926-08da9e00-8e59-11ea-8c03-24e41d381691.png)
+
 ## :interrobang:  D'où vient le projet ?
 
 → Ce projet est un exercice.
+

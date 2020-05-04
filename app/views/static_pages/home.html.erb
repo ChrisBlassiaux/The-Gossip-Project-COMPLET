@@ -1,12 +1,29 @@
 
-<h1>Homepage</h1>
+<div class="home_div">
+   <%= image_tag "THP_logo.png" %> 
+</div>
 
-<h2>The Gossip Project te souhaite la bienvenue !</h2>
 
-<h3>Les potins :</h3>
+<h2 class="mt-5">The Gossip Project</h2>
 
-<% Gossip.each do |gossip| %>
-<%= gossip.title %>
+<p> 
+  The Gossip Project est un site permettant de poster des potins concernant la formation <a href="https://www.thehackingproject.org/fr" class="text-warning" target="_blank"> The Hacking Project </a>. 
+  Vous êtes moussaillon ? Pirate ? Corsaire ? ou avez un autre statut faisant parti de The Hacking Project ? Lachez-vous et 
+  racontez nous tout vous concernant ou concernant vos collègues ! 
+</p>
+
+<h3 class="mt-5">Les potins postés</h3> <br>
+
+<% @my_id = Gossip.first.id %>
+<% while @my_id <= Gossip.last.id %>
+  <% gossip = Gossip.find_by(id:@my_id) %>
+
+  <div class="card mt-2 mb-3">
+    <h5 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h5>
+    <div class="card-body">
+      <p class="card-title"><%= gossip.content %></p>
+      <a href="/gossips/<%= (@my_id) %>" class="btn btn-warning">Gossip n° <%=@my_id%></a>
+    </div>
+  </div>
+  <% @my_id += 1%>
 <% end %>
-
-<%= Gossip.find(1).title %>
