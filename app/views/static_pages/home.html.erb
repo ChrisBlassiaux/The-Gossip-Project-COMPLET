@@ -1,0 +1,12 @@
+
+<h1>Homepage</h1>
+
+<h2>The Gossip Project te souhaite la bienvenue !</h2>
+
+<h3>Les potins :</h3>
+
+<% Gossip.each do |gossip| %>
+<%= gossip.title %>
+<% end %>
+
+<%= Gossip.find(1).title %>
