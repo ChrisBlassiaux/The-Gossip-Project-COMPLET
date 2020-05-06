@@ -1,4 +1,10 @@
 class GossipsController < ApplicationController
+  def index
+  end
+
+  def show
+  end
+
   def new
   end
 
@@ -14,5 +20,34 @@ class GossipsController < ApplicationController
       render "/gossips/new"
       # sinon, il render la view new (qui est celle sur laquelle on est déjà)
     end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+
+    # modifier en methodes REST
+    # static pages
+  def contact
+  end
+
+  def team
+  end
+
+  # dynamic pages
+  def welcome
+  end
+
+  def gossip
+  end
+
+  def page_user
+
   end
 end

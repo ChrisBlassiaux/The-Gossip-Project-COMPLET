@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
-  # get 'gossips/new'
-  # get 'gossips/create'
-  root 'static_pages#home'
-  get '/static_pages/contact', to: 'static_pages#contact'
-  get '/static_pages/team', to: 'static_pages#team'
+  root 'gossips#index'
+  get '/contact', to: 'gossips#contact'
+  get '/team', to: 'gossips#team'
   get '/welcome/:first_name', to: 'dynamic_pages#welcome'
-  # get '/gossips/:id', to: 'dynamic_pages#gossip'
-  get '/user/:id', to: 'dynamic_pages#page_user'
+  get '/gossips/:id', to: 'gossips#gossip'
+  get '/user/:id', to: 'gossips#page_user'
 
   resources :gossips
   
