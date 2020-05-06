@@ -1,4 +1,5 @@
 <div class="container mt-5">
+  <% user = User.find_by(id:params[:id]) %>
   <div class="card mt-2">
   <h3 class="card-header">Profil n°<%= params[:id] %></h3>
   <p class="card-header">Nom : <%= User.find_by(id:params[:id]).last_name %></p>
@@ -6,8 +7,11 @@
   <p class="card-header">Description : <%= User.find_by(id:params[:id]).description %></p>
   <p class="card-header">Email : <%= User.find_by(id:params[:id]).email %></p>
   <p class="card-header">Age : <%= User.find_by(id:params[:id]).age %></p>
-  <p class="card-header">Ville : <%= City.find(User.find_by(id:params[:id]).city_id).name %></p>
+  <p class="card-header">Ville : <a href=<%= city_path(user.city_id) %> class="text-danger"> <%= City.find(User.find_by(id:params[:id]).city_id).name %> </a> </p>
+ 
 </div>
 
 <a href="/" class="btn btn-dark mt-3">Retour</a>
 </div>
+
+

@@ -30,22 +30,14 @@ class GossipsController < ApplicationController
   end
 
 
-    # modifier en methodes REST
-    # static pages
+    # VOIR Où mettre les methodes ci-dessous 
   def contact
   end
 
   def team
   end
 
-  # dynamic pages
   def welcome
   end
 
-  def gossip
-  end
-
-  def page_user
-
-  end
 end

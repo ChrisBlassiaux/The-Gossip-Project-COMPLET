@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/team', to: 'gossips#team'
   get '/welcome/:first_name', to: 'gossips#welcome'
   
-  get '/user/:id', to: 'gossips#page_user'
-
   resources :gossips
+  resources :cities, only: [:show]
+  resources :users, only: [:show]
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
