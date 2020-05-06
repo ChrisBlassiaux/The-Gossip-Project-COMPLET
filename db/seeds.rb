@@ -57,3 +57,12 @@ end
     recipient_id: User.find(rand(User.first.id..User.last.id)).id
   )
 end
+
+
+70.times do
+  Comment.create(
+    content: Faker::TvShows::Simpsons.quote,
+    user_id: User.all.sample.id,
+    gossip_id: Gossip.all.sample.id
+  )
+end

@@ -12,35 +12,18 @@
   <h3 class="mt-5">Les potins postés</h3> <br>
 
 
-#new de mathilde 
-
-<% id_potin = Gossip.first.id %>
-<% @gossips.each do |gossip| %>
-    <div class="card mt-2 text-center" style="width: 20rem;">
-      <h6 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h6>
-      <div class="card-body">
-        <h6 class="card-title"><%= gossip.content %></h6>
-        <a href="<%= gossip_path(gossip.id) %>" class="btn btn-primary">Gossip n° <%=id_potin%></a>
-      </div>
-    </div>
-    <% id_potin += 1%>
-  <% end %>
-
-</div>
-
-
-#Mon code
-
-   <div class="row">
-  <% @my_id = Gossip.first.id %>
-  <% while @my_id <= Gossip.last.id %>
-    <% gossip = Gossip.find_by(id:@my_id) %>
+  <div class="row">
+  <% id_potin = Gossip.first.id %>
+  <% @gossips.each do |gossip| %>
       <div class="card mb-3 col-md-5 p-0 ml-3">
-        <h5 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h5>
+        <h6 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h6>
         <div class="card-body">
-          <p class="card-title"><%= gossip.content %></p>
-          <a href="/gossips/<%= (@my_id) %>" class="btn btn-dark">Gossip n° <%=@my_id%></a>
+          <h6 class="card-title"><%= gossip.content %></h6>
+          <a href="<%= gossip_path(gossip.id) %>" class="btn btn-dark">Gossip n° <%=id_potin%></a>
         </div>
       </div>
-      <% @my_id += 1%>
-  <% end %>
+      <% id_potin += 1%>
+    <% end %>
+
+  </div>
+</div>

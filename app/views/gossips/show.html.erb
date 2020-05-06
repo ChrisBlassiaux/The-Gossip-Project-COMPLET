@@ -3,7 +3,9 @@
 
   <% gossip = Gossip.find_by(id:params[:id]) %>
 
-  <div class="card mt-2">
+
+<%# Corriger l'erreur du user_id  %>
+  <div class="card mt-2 mb-3">
     <h5 class="card-header">Auteur : <%= User.find_by(id:gossip.user_id).first_name %></h5>
     <div class="card-body">
       <p class="card-title">Titre : <%= Gossip.find(params[:id]).title %></p>
@@ -12,8 +14,17 @@
       <a href=<%= user_path(gossip.user_id) %> class="btn btn-dark">Profil de l'auteur</a>
       <a href=<%= city_path(City.find(User.find_by(id:gossip.user_id).city_id)) %> class="btn btn-dark">Ville de l'auteur</a>
       <a href="/gossips/<%= params[:id] %>/edit" class="btn btn-danger">Modifier</a>
-      <a href="/gossips/<%= params[:id] %>" class="btn btn-danger" data-confirm="Etes-vous sûr ?" data-method="DELETE">Supprimer</a>
+      <a href="/gossips/<%= params[:id] %>" class="btn btn-danger" data-confirm="Etes-vous sûr de vouloir supprimer le gossip ?" data-method="DELETE">Supprimer</a>
     </div>
     <div class="card-footer"><%= Gossip.find(params[:id]).created_at %></div>
   </div>
+
+
+</div>
+   <div class="container-sm mt-3">
+
+      <div>
+        <%= render 'comments/index'%>
+        <%= render 'comments/new'%>
+      </div>
 </div>
