@@ -1,5 +1,6 @@
 class GossipsController < ApplicationController
   def index
+    @gossips = Gossip.all
   end
 
   def show
@@ -13,7 +14,7 @@ class GossipsController < ApplicationController
 
     if @gossip.save 
       flash[:success] = "Le gossip a bien été enregisté."
-      redirect_to "/"
+      redirect_to "/" #redirect_back
     else
       flash[:echec] = "Le gossip n'a pas été sauvegardé, entrées incorrèctes"
       render "/gossips/new"
@@ -35,7 +36,7 @@ class GossipsController < ApplicationController
   def destroy
     @gossip = Gossip.find(params[:id])
     if @gossip.destroy
-      redirect_to "/"
+      redirect_to "/" #redirect_back
     end
   end
 
