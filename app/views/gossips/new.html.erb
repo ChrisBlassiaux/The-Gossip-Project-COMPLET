@@ -1,18 +1,15 @@
-
-
 <div class="container  mt-5">
-  <h2 class="mb-5"> Lâche ton meilleur potin ! </h2>
-  <%= form_tag url_for(action: 'create'), method: "post" do %>
-  <div class="form-group">
-      <%= label_tag 'title', 'Titre' %>
-      <%= text_field_tag 'title', nil, class:"form-control", placeholder: 'MonGossip1'  %>
-  </div>
-  <div class="form-group">
-      <%= label_tag 'content', 'Contenu' %>
-      <%= text_area_tag 'content', nil, class:"form-control", rows: 3 %>
-  </div>
-      <%= submit_tag "Créer", class:"btn btn-dark" %>
-      <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
-<% end %>
-
+    <h2 class="mb-5"> Lâche ton meilleur potin ! </h2>
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <div class="form-group">
+        <%= label_tag 'title', 'Titre' %>
+        <%= text_field_tag 'title', nil, class:"form-control", placeholder: 'MonGossip1'  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag 'content', 'Contenu' %>
+        <%= text_area_tag 'content', nil, class:"form-control", rows: 3 %>
+    </div>
+        <%= submit_tag "Créer", class:"btn btn-dark" %>
+        <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
+    <% end %>
 </div>
