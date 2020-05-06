@@ -1,28 +1,18 @@
 
 
-<%= form_tag url_for(action: 'create'), method: "post" do %>
-
-      <%= label_tag 'Titre' %>
-      <%= text_field_tag 'title', @gossip, class:"form-control"  %>
-      <br /> <br />
-
-      <%= label_tag 'Contenu' %>
-      <%= text_area_tag 'content' %>
-      <br /> <br />
-
-      <%= submit_tag "Créer" %>
-
+<div class="container  mt-5">
+  <h2 class="mb-5"> Lâche ton meilleur potin ! </h2>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+  <div class="form-group">
+      <%= label_tag 'title', 'Titre' %>
+      <%= text_field_tag 'title', nil, class:"form-control", placeholder: 'MonGossip1'  %>
+  </div>
+  <div class="form-group">
+      <%= label_tag 'content', 'Contenu' %>
+      <%= text_area_tag 'content', nil, class:"form-control", rows: 3 %>
+  </div>
+      <%= submit_tag "Créer", class:"btn btn-dark" %>
+      <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
 <% end %>
 
-
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Titre</label>
-    <input type="title" class="form-control" id="exampleFormControlInput1" placeholder="MonPotin1">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Contenu</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Jean triche sur Dédé"></textarea>
-  </div>
-  <button type="submit" class="btn btn-warning">Créer</button>
-</form>
+</div>

@@ -19,18 +19,18 @@ nav {
 }
 
 nav:hover {
-  border-bottom: 4px solid rgba(0, 0, 0, 0.692);
+  border-bottom: 4px solid rgba(211, 0, 0, 0.212);
 }
 
 nav a {
   text-decoration: none;
-  color: rgb(31, 31, 31);
+  color: #FFF;
   transition: .3s;
 }
 
 nav a:hover {
   text-decoration: none;
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.548);
 }
 
 .author_div img {
@@ -46,4 +46,14 @@ nav a:hover {
 .clear {
   clear: both;
   margin-top: 180px;
+}
+
+.alert {
+  position: relative;
+  top: 80px;
+}
+
+.nav-height {
+  display: inline-block;
+  height: 50px;
 }

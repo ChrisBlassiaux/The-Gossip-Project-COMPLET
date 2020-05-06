@@ -1,30 +1,28 @@
-
-<div class="home_div">
-   <%= image_tag "THP_logo.png" %> 
+ <div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Hello, moussaillons!</h1>
+    <p>The Gossip Project est un site permettant de poster des potins concernant la formation <a href="https://www.thehackingproject.org/fr" class="text-danger" target="_blank"> The Hacking Project </a>. 
+  Vous êtes moussaillon ? Pirate ? Corsaire ? ou avez un autre statut faisant parti de The Hacking Project ? Lachez-vous et 
+  racontez nous tout vous concernant ou concernant vos collègues ! </p>
+    <p><a href=<%= contact_path %> class="btn btn-dark">Nous contacter  &raquo;</a></p>
+  </div>
 </div>
 
+<div class="container">
+  <h3 class="mt-5">Les potins postés</h3> <br>
 
-<h2 class="mt-5">The Gossip Project</h2>
-
-<p> 
-  The Gossip Project est un site permettant de poster des potins concernant la formation <a href="https://www.thehackingproject.org/fr" class="text-warning" target="_blank"> The Hacking Project </a>. 
-  Vous êtes moussaillon ? Pirate ? Corsaire ? ou avez un autre statut faisant parti de The Hacking Project ? Lachez-vous et 
-  racontez nous tout vous concernant ou concernant vos collègues ! 
-</p>
-
-<h3 class="mt-5">Les potins postés</h3> <br>
-
-<% @my_id = Gossip.first.id %>
-<% while @my_id <= Gossip.last.id %>
-  <% gossip = Gossip.find_by(id:@my_id) %>
-
-  <div class="card mt-2 mb-3">
-    <h5 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h5>
-    <div class="card-body">
-      <p class="card-title"><%= gossip.content %></p>
-      <a href="/gossips/<%= (@my_id) %>" class="btn btn-warning">Gossip n° <%=@my_id%></a>
-    </div>
-  </div>
-  <% @my_id += 1%>
-<% end %>
+   <div class="row">
+  <% @my_id = Gossip.first.id %>
+  <% while @my_id <= Gossip.last.id %>
+    <% gossip = Gossip.find_by(id:@my_id) %>
+      <div class="card mb-3 col-md-5 p-0 ml-3">
+        <h5 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h5>
+        <div class="card-body">
+          <p class="card-title"><%= gossip.content %></p>
+          <a href="/gossips/<%= (@my_id) %>" class="btn btn-dark">Gossip n° <%=@my_id%></a>
+        </div>
+      </div>
+      <% @my_id += 1%>
+  <% end %>
+</div>
 

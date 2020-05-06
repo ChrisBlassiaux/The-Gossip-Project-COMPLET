@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h2> Gossip n°<%= params[:id] %> </h2>
+
+  <% gossip = Gossip.find_by(id:params[:id]) %>
+
+  <div class="card mt-2">
+    <h5 class="card-header">Auteur : <%= User.find_by(id:gossip.user_id).first_name %></h5>
+    <div class="card-body">
+      <p class="card-title">Titre : <%= Gossip.find(params[:id]).title %></p>
+      <p class="card-title">Contenu : <%= Gossip.find(params[:id]).content %></p>
+      <p class="card-title">Ville de l'Auteur : <%= City.find(User.find_by(id:gossip.user_id).city_id).name %></p>
+      <a href="/user/<%= gossip.user_id %>" class="btn btn-dark">Profil de l'auteur</a>
+    </div>
+    <div class="card-footer"><%= Gossip.find(params[:id]).created_at %></div>
+  </div>
+</div>

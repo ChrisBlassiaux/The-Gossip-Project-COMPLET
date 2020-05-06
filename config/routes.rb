@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'gossips#index'
   get '/contact', to: 'gossips#contact'
   get '/team', to: 'gossips#team'
-  get '/welcome/:first_name', to: 'dynamic_pages#welcome'
-  get '/gossips/:id', to: 'gossips#gossip'
+  get '/welcome/:first_name', to: 'gossips#welcome'
+  
   get '/user/:id', to: 'gossips#page_user'
 
   resources :gossips
