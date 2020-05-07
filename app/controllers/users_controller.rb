@@ -7,7 +7,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], email: params[:email], age: params[:age], city_id: City.first.id, password: params[:password])
+    @city = City.find_by(name: params[:city])
+    if @city == nil
+      @city = City.create(name: params[:city])
+    end
+
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], email: params[:email], age: params[:age], city_id: @city.id, password: params[:password])
 
     if @user.save 
       log_in(@user)

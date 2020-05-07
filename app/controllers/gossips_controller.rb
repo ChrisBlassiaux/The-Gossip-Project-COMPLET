@@ -1,4 +1,7 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:create, :new]
+  before_action :gossip_user, only: [:edit, :update, :destroy]
+
   def index
     @gossips = Gossip.all
   end
@@ -11,7 +14,7 @@ class GossipsController < ApplicationController
   end
 
   def create
-    @gossip = Gossip.new(title: params[:title], content: params[:content], user_id: User.first.id)
+    @gossip = Gossip.new(title: params[:title], content: params[:content], user_id: current_user.id)
 
     if @gossip.save 
       flash[:success] = "Le gossip a bien été enregisté."
@@ -38,6 +41,7 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
     if @gossip.destroy
       redirect_to "/" 
+      flash[:success] = "Le gossip a bien été supprimé."
     end
   end
 
@@ -54,6 +58,24 @@ class GossipsController < ApplicationController
 
   #test
   def create_comment
+  end
+
+  private 
+
+  def authenticate_user
+    unless current_user
+      flash[:echec] = "Connecte toi avant de lâcher ton potin !"
+      redirect_to new_session_path
+    end
+  end
+
+
+  def gossip_user
+    @gossip = Gossip.find(params[:id])
+    if @gossip.user_id != current_user.id
+      flash[:echec] = "Tu ne peux pas modifier ou supprimer potin !"
+      redirect_to '/'
+    end
   end
 
 end

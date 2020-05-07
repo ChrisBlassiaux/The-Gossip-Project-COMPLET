@@ -45,11 +45,14 @@ nav a:hover {
 }
 
 .alert {
-  position: relative;
-  top: 80px;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
 }
 
 .nav-height {
   display: inline-block;
   height: 50px;
 }
+

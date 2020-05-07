@@ -33,9 +33,17 @@
           <li class="nav-item">
             <div class="nav-link"><%= link_to "Contact", contact_path %></div>
           </li>
+
+          <% if current_user %>
+
           <li class="nav-item">
             <div class="nav-link"> <%= link_to "Se déconnecter", session_path(session.id), method: :delete %> </div>
           </li>
+
+          <% end %>
+
+          <% if !current_user %>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Se connecter / S'inscrire
@@ -45,10 +53,25 @@
               <div class="dropdown-item"> <%= link_to "S'inscrire", new_user_path %> </div>
             </div> 
           </li>
+
+           <% end %>
+
         </ul>
       </div>
     </nav>
 
+      <% if !!flash[:success] %>
+        <div class="alert alert-success">
+          <%= flash[:success]%>
+        </div>
+      <% end %>
+        <% if !!flash[:echec] %>
+        <div class="alert alert-danger">
+          <%= flash[:echec] %>
+        </div>
+      <% end %>
+      
+  
     <%= yield %>
 
    </body>

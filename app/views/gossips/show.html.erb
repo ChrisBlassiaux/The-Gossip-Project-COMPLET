@@ -13,8 +13,15 @@
       <p class="card-title">Ville de l'Auteur : <%= City.find(User.find_by(id:gossip.user_id).city_id).name %></p>
       <a href=<%= user_path(gossip.user_id) %> class="btn btn-dark">Profil de l'auteur</a>
       <a href=<%= city_path(City.find(User.find_by(id:gossip.user_id).city_id)) %> class="btn btn-dark">Ville de l'auteur</a>
-      <a href="/gossips/<%= params[:id] %>/edit" class="btn btn-danger">Modifier</a>
-      <a href="/gossips/<%= params[:id] %>" class="btn btn-danger" data-confirm="Etes-vous sûr de vouloir supprimer le gossip ?" data-method="DELETE">Supprimer</a>
+      
+      
+      <%  if current_user %> 
+        <%  if Gossip.find(params[:id]).user_id == current_user.id %> 
+          <a href="/gossips/<%= params[:id] %>/edit" class="btn btn-danger">Modifier</a>
+          <a href="/gossips/<%= params[:id] %>" class="btn btn-danger" data-confirm="Etes-vous sûr de vouloir supprimer le gossip ?" data-method="DELETE">Supprimer</a>
+        <% end %> 
+      <% end %>
+
     </div>
     <div class="card-footer"><%= Gossip.find(params[:id]).created_at %></div>
   </div>
