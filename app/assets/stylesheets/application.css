@@ -18,19 +18,15 @@ nav {
   transition: .3s;
 }
 
-nav:hover {
-  border-bottom: 4px solid rgba(211, 0, 0, 0.212);
-}
-
 nav a {
   text-decoration: none;
-  color: #FFF;
+  color: #000;
   transition: .3s;
 }
 
 nav a:hover {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.548);
+  color: rgba(26, 26, 26, 0.548);
 }
 
 .author_div img {

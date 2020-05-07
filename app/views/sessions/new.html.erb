@@ -1,0 +1,15 @@
+<div class="container  mt-5">
+    <h2 class="mb-5"> Se connecter :  </h2>
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+     <div class="form-group">
+        <%= label_tag 'email', 'Email' %>
+        <%= text_field_tag 'email', nil, class:"form-control"  %>
+    </div>
+     <div class="form-group">
+        <%= label_tag 'password', 'Mot de passe' %>
+        <%= password_field_tag 'password', nil, class:"form-control" %>
+    </div>
+        <%= submit_tag "Me connecter", class:"btn btn-dark" %>
+        <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
+    <% end %>
+</div>

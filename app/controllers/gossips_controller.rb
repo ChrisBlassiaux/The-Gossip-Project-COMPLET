@@ -4,6 +4,7 @@ class GossipsController < ApplicationController
   end
 
   def show
+ 
   end
 
   def new

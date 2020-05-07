@@ -1,8 +1,10 @@
 class User < ApplicationRecord
+  has_secure_password
   validates :first_name, length: {in: 3..14}, presence: true
   validates :last_name, length: {in: 3..14}, presence: true
   validates :description, length: {maximum: 250}, presence: true
   validates :email, uniqueness: true, presence: true, format: { with: /\A[^@\s]+@([^@\s]+.)+[^@\s]+\z/, message: "Adresse email s'il te plait" }
+  validates :password, presence: true, length: {in: 6..20}
 
   belongs_to :city
   has_many :gossips

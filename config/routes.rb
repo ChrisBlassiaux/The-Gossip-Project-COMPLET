@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   #cities
   resources :cities, only: [:show]
   #users
-  resources :users, only: [:show]
+  resources :users
+  
+  #sessions
+  resources :sessions, only: [:new, :create, :destroy]
   
 end
