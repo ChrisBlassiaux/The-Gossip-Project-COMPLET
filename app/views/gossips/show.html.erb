@@ -21,10 +21,10 @@
 
 
 </div>
-   <div class="container-sm mt-3">
-
-      <div>
-        <%= render 'comments/index'%>
-        <%= render 'comments/new'%>
-      </div>
+  <div class="container-sm mt-3">
+<%# cela créait un bug à cause du comments dans les pages distantes  %>
+  <div>
+    <%= render 'comments/index'%>
+    <%= render 'comments/new'%>
+  </div>
 </div>
