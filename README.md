@@ -19,10 +19,10 @@ Apercu screenshot
 
 → Ce projet est en cours. 
 
-J1 - sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins
-J2 - sera consacré à la création d'un potin
-J3 - sera consacré au CRUD complet des potins
-J4 - sera consacré aux commentaires des potins, aux likes des potins, et à la gestion d'utilisateurs
+J1 - sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins<br>
+J2 - sera consacré à la création d'un potin<br>
+J3 - sera consacré au CRUD complet des potins<br>
+J4 - sera consacré aux commentaires des potins, aux likes des potins, et à la gestion d'utilisateurs<br>
 J5 - sera consacré à l'identification des potins
 
 ## :computer:  Que contient ce projet ?
