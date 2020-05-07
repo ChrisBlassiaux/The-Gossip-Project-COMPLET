@@ -1,40 +1,23 @@
 class CommentsController < ApplicationController
-  
+
+  # Display a view to create a comment
+  def new
+    @comment = Comment.new(gossip: "", user: User.last, content: "")
+  end
+
+  # Create a new comment
   def create
+    gossip = Gossip.find(params[:format]).id
 
-    @current_gossip = Gossip.find(params[:gossip_id])
-    @comment = Comment.create(content: params[:content], user_id: User.first.id, gossip_id: @current_gossip.id)
-    @tags = JoinTableGossipTag.all.map{|join| join.gossip_id == @current_gossip.id ? join.tag.title : nil}.compact    
-    if @comment.save 
-      @comments = @current_gossip.comments
-      render 'gossips/show'
-    end
-  end
+    comment = Comment.new(gossip_id: gossip,
+                          user: User.last,
+                          content: params[:content])
 
-  def edit
-    @current_gossip = Gossip.find(params[:gossip_id])
-    @comment = Comment.find(params[:id])
-  end
-
-  def update
-    @current_gossip = Gossip.find(params[:gossip_id])
-    @tags = JoinTableGossipTag.all.map{|join| join.gossip_id == @current_gossip.id ? join.tag.title : nil}.compact    
-    @comment = Comment.find(params[:id])
-
-    if @comment.update(content: params[:content])
-      @comments = @current_gossip.comments
-      render 'gossips/show'
-    end
-  end
-
-  def destroy
-    @current_gossip = Gossip.find(params[:gossip_id])
-    @tags = JoinTableGossipTag.all.map{|join| join.gossip_id == @current_gossip.id ? join.tag.title : nil}.compact    
-    @comment = Comment.find(params[:id])
-
-    if @comment.destroy
-      @comments = @current_gossip.comments
-      render 'gossips/show'
+    if comment.save
+      flash[:success] = "Le commentaire a été créé avec succès."
+      redirect_to gossip_path(gossip)
+    else
+      redirect_to gossip_path(gossip)
     end
   end
 end

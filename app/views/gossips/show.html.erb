@@ -4,7 +4,7 @@
   <% gossip = Gossip.find_by(id:params[:id]) %>
 
 
-<%# Corriger l'erreur du user_id  %>
+<%# Corriger l'erreur du user_id si elle revient  %>
   <div class="card mt-2 mb-3">
     <h5 class="card-header">Auteur : <%= User.find_by(id:gossip.user_id).first_name %></h5>
     <div class="card-body">
@@ -21,10 +21,21 @@
 
 
 </div>
-  <div class="container-sm mt-3">
-<%# cela créait un bug à cause du comments dans les pages distantes  %>
-  <div>
-    <%= render 'comments/index'%>
-    <%= render 'comments/new'%>
-  </div>
+  <div class="container-sm mt-5">
+  <div class="row justify-content-center">
+      <div class="col-12">
+        <%= form_tag comments_path(params[:id]), method: "post" do %>
+          <div class="form-group">
+            <%= label_tag 'Ajouter un commentaire :' %>
+            <%= text_area_tag 'content', nil , {class: 'form-control', rows: 5, placeholder: "Saisissez votre commentaire..."} %>
+          </div>
+          <%= submit_tag "Valider", {class: 'btn btn-dark'} %>
+        <% end %>
+      </div>
+    </div>
+ </div> 
 </div>
+
+<%# @comment.content %>
+
+

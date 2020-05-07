@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get '/welcome/:first_name', to: 'gossips#welcome'
   
   #pages gossips
-  resources :gossips do
-    resources :comments, only: [:create, :edit, :update, :destroy]
-    resources :like, only: [:create, :destroy]
-  end
+  resources :gossips
+  resources :comments, only: [:create, :edit, :update, :destroy, :new]
+  # resources :like, only: [:create, :destroy]
+ 
 
   #cities
   resources :cities, only: [:show]
@@ -20,7 +20,3 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   
 end
-
-# Mes Anciennes routes 
-  # resources :gossips
-  # resources :comments, only: [:create, :new, :destroy, :edit]
