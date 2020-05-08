@@ -28,4 +28,29 @@ class CommentsController < ApplicationController
       redirect_to gossip_path(gossip)
     end
   end
+
+  def edit
+  end
+
+  def update
+    puts "0" * 70
+    puts params
+    puts "0" * 70
+
+    @model = Comment.find_by(id: params[:id]) #TROUVER LE COMMENT GRACE A L'ID, GOSSIP_ID et User_id !
+    if @model.update(content: params[:content])
+      redirect_to gossip_path(params[:id])  #gossip_path(gossip.id)
+    else
+      render gossip_path(params[:id])   #gossip_path(gossip.id)
+    end
+  end
+
+  def destroy
+    @comment = Comment.find_by(gossip_id: params[:id])
+
+    if @comment.destroy
+      redirect_to gossip_path(params[:id]) 
+      flash[:success] = "Le commentaire a bien été supprimé."
+    end
+  end
 end

@@ -56,6 +56,18 @@
             <p><%= comment.content %></p>
           </div>
         </div>
+
+        <div class="mb-3">
+
+          <%  if current_user %> 
+            <%  if comment.user_id == current_user.id %> 
+              <a href="/comments/<%= params[:id] %>/edit" class="btn btn-danger">Modifier</a>
+              <a href="/comments/<%= params[:id] %>" class="btn btn-danger" data-confirm="Etes-vous sûr de vouloir supprimer le commentaire ?" data-method="DELETE">Supprimer</a>
+            <% end %> 
+          <% end %>
+
+        </div>
+
       <% end %>
     <% end %>
 

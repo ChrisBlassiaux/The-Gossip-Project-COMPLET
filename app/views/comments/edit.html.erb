@@ -1,1 +1,13 @@
  
+<div class="container  mt-5">
+  <% comment = Comment.find_by(id:params[:id]) %>
+    <h2 class="mb-5"> Modifie le commentaire ! </h2>
+    <%= form_tag url_for(action: 'update'), method: "put" do %>
+    <div class="form-group">
+        <%= label_tag 'content', 'Contenu' %>
+        <%= text_area_tag 'content', nil, options = {class:"form-control", rows: 3} %>
+    </div>
+        <%= submit_tag "Modifier", class:"btn btn-dark" %>
+        <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
+    <% end %>
+</div>
