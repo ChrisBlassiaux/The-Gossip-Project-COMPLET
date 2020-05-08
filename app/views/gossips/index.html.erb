@@ -13,16 +13,14 @@
 
 
   <div class="row">
-  <% id_potin = Gossip.first.id %>
-  <% @gossips.each do |gossip| %>
+  <% @gossips.order('gossips.created_at DESC').all.each do |gossip| %>
       <div class="card mb-3 col-md-5 p-0 ml-3">
         <h6 class="card-header"><%= User.find_by(id:gossip.user_id).first_name %></h6>
         <div class="card-body">
           <h6 class="card-title"><%= gossip.content %></h6>
-          <a href="<%= gossip_path(gossip.id) %>" class="btn btn-dark">Gossip n° <%=id_potin%></a>
+          <a href="<%= gossip_path(gossip.id) %>" class="btn btn-dark">Gossip n° <%= gossip.id %></a>
         </div>
       </div>
-      <% id_potin += 1%>
     <% end %>
 
   </div>
