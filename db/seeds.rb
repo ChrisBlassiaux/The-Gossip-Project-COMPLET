@@ -11,13 +11,12 @@ User.destroy_all
 City.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
-PrivateMessage.destroy_all
 JoinTableTagGossip.destroy_all
 
 10.times do
   City.create!(
-    name: Faker::Address.city,
-    zip_code: Faker::Number.between(from: 40000, to: 50000)
+    name: ["Lyon","London","Paris","Berlin","Nantes","New York","Tokyo","Hong Kong","Barcelona","Rome","San Francisco","Los Angeles"].sample,
+    zip_code: Faker::Address.zip_code
   )
   User.create!(
     first_name: Faker::Name.first_name,
@@ -25,7 +24,8 @@ JoinTableTagGossip.destroy_all
     description: Faker::Lorem.sentence(word_count: 10),
     email: Faker::Internet.email,
     age: Faker::Number.between(from: 16, to: 60),
-    city_id: City.find(rand(City.first.id..City.last.id)).id
+    city_id: City.find(rand(City.first.id..City.last.id)).id,
+    password: "password"
   )
 end
 
@@ -50,13 +50,6 @@ end
   )  
 end
 
-5.times do
-  PrivateMessage.create!(
-    content: Faker::Lorem.sentence(word_count: 10),
-    sender_id: User.find(rand(User.first.id..User.last.id)).id,
-    recipient_id: User.find(rand(User.first.id..User.last.id)).id
-  )
-end
 
 
 70.times do
@@ -66,3 +59,5 @@ end
     gossip_id: Gossip.all.sample.id
   )
 end
+
+
