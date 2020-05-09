@@ -33,15 +33,14 @@ class CommentsController < ApplicationController
   end
 
   def update
-    puts "0" * 70
-    puts params
-    puts "0" * 70
+    @model = Comment.find_by(id: params[:id]) 
 
-    @model = Comment.find_by(id: params[:id]) #TROUVER LE COMMENT GRACE A L'ID, GOSSIP_ID et User_id !
     if @model.update(content: params[:content])
-      redirect_to gossip_path(params[:id])  #gossip_path(gossip.id)
+      redirect_to gossip_path(Comment.find(params[:id]).gossip_id)  
+      flash[:success] = "Le commentaire a été modifié avec succès."
     else
-      render gossip_path(params[:id])   #gossip_path(gossip.id)
+      render gossip_path(params[:id].gossip_id)
+      flash[:echec] = "Le commentaire n'a pas été modifié, veuillez essayer à nouveau."
     end
   end
 

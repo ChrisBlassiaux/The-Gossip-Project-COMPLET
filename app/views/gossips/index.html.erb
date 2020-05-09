@@ -19,6 +19,16 @@
         <div class="card-body">
           <h6 class="card-title"><%= gossip.content %></h6>
           <a href="<%= gossip_path(gossip.id) %>" class="btn btn-dark">Gossip n° <%= gossip.id %></a>
+
+           <% @comment_all = Comment.all %>
+
+            <%  c = 0   %>
+           <% @comment_all.each do |comment|
+              c += 1 if comment.gossip_id == gossip.id
+           end %>
+          <% if c >= 1 %>
+            <p class="mb-0 mt-3 text-danger"><%= c %> commentaire(s)</p>
+          <% end %>
         </div>
       </div>
     <% end %>
