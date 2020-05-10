@@ -13,7 +13,7 @@
 → Ce projet a été créé le 4/05/2020 durant ma formation chez The Hacking Project.
 
 ## :eyes:  Aperçu ?
-Apercu screenshot 
+https://the-gossip-hacking-project.herokuapp.com/
 
 ## :top:  Progression ?
 
@@ -22,7 +22,7 @@ Apercu screenshot
 J1 - sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins<br>
 J2 - sera consacré à la création d'un potin<br>
 J3 - sera consacré au CRUD complet des potins<br>
-J4 - sera consacré aux commentaires des potins, aux likes des potins, et à la gestion d'utilisateurs<br>
+J4 - sera consacré aux commentaires des potins, et à la gestion d'utilisateurs<br>
 J5 - sera consacré à l'identification des potins
 
 ## :computer:  Que contient ce projet ?
@@ -30,10 +30,9 @@ J5 - sera consacré à l'identification des potins
 → Ce projet est codé en Ruby et Ruby On Rails, avec PostgreSQL.
 
 ## Base de donnée ?
-![Screenshot from 2020-05-04 22-45-23](https://user-images.githubusercontent.com/59894954/81011926-08da9e00-8e59-11ea-8c03-24e41d381691.png)
+![dbtgp](https://user-images.githubusercontent.com/59894954/81508924-62364780-9307-11ea-95f7-1312b83ac0aa.png)
+
 
 ## :interrobang:  D'où vient le projet ?
 
 → Ce projet est un exercice.
-
-*
