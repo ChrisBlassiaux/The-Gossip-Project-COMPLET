@@ -9,8 +9,13 @@ class SessionsController < ApplicationController
     # on vérifie si l'utilisateur existe bien ET si on arrive à l'authentifier (méthode bcrypt) avec le mot de passe 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+
+      # on va cuisiner le cookie pour l'utilisateur
+      remember(user)
+
       redirect_to '/'
       # redirige où tu veux, avec un flash ou pas
+      
     else
       flash[:echec] = 'Mot de passe ou/et email invalide(s)'
       render new_session_path
@@ -18,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    log_out(user)
     redirect_to '/'
   end
 end
