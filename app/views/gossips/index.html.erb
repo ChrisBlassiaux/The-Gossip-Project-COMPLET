@@ -11,10 +11,9 @@
 <div class="container">
   <h3 class="mt-5">Les potins postés</h3> <br>
 
-
   <div class="row">
   <% @gossips.order('gossips.created_at DESC').all.each do |gossip| %>
-      <div class="card mb-3 col-md-5 p-0 ml-3">
+      <div class="card mb-3 col-md-6 p-0">
         <h6 class="card-header"><%= gossip.user.first_name %></h6>
         <div class="card-body">
           <h6 class="card-title"><%= gossip.content %></h6>
@@ -32,6 +31,5 @@
         </div>
       </div>
     <% end %>
-
   </div>
 </div>

@@ -45,8 +45,7 @@ class GossipsController < ApplicationController
     end
   end
 
-
-    # VOIR Où mettre les methodes ci-dessous 
+    # Page qui ne concernent pas totalement le gossips_controller
   def contact
   end
 
@@ -54,10 +53,6 @@ class GossipsController < ApplicationController
   end
 
   def welcome
-  end
-
-  #test
-  def create_comment
   end
 
   private 
@@ -68,7 +63,6 @@ class GossipsController < ApplicationController
       redirect_to new_session_path
     end
   end
-
 
   def gossip_user
     @gossip = Gossip.find(params[:id])

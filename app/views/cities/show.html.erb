@@ -1,9 +1,8 @@
 <div class="container mt-5">
   <div class="card mt-2">
-  <h3 class="card-header">Ville n°<%= params[:id] %></h3>
-  <p class="card-header">Nom de la ville : <%= City.find(User.find_by(id:params[:id]).city_id).name %></p>
-  <p class="card-header">Code postal : <%= City.find(User.find_by(id:params[:id]).city_id).zip_code %></p>
-</div>
-
-<a href="/" class="btn btn-dark mt-3">Retour</a>
+    <h3 class="card-header">Ville n°<%= params[:id] %></h3>
+    <p class="card-header">Nom de la ville : <%= City.find(User.find_by(id:params[:id]).city_id).name %></p>
+    <p class="card-header">Code postal : <%= City.find(User.find_by(id:params[:id]).city_id).zip_code %></p>
+  </div>
+  <a href="/" class="btn btn-dark mt-3">Retour</a>
 </div>

@@ -22,6 +22,5 @@ class UsersController < ApplicationController
       flash[:echec] = "Erreur de champs, veuillez recommencer"
       render new_user_path
     end
-
   end
 end

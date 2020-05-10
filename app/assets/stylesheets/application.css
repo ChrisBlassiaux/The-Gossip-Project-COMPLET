@@ -44,6 +44,11 @@ nav a:hover {
   margin-top: 180px;
 }
 
+.clear-2 {
+  clear: both;
+  margin-top: 230px;
+}
+
 .alert {
   position: absolute;
   text-align: center;
@@ -56,3 +61,6 @@ nav a:hover {
   height: 50px;
 }
 
+.right {
+  margin-left: auto;
+}
