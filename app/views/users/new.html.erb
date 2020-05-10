@@ -29,6 +29,12 @@
         <%= label_tag 'password', 'Mot de passe' %>
         <%= password_field_tag 'password', nil, class:"form-control" %>
     </div>
+    <div class="form-check mb-3">
+        <%= check_box_tag 'checkbox', 'true', false, class: 'form-check-input' %> 
+        <label class="form-check-label" for="defaultCheck1">
+            Se souvenir de moi
+        </label>
+    </div>
         <%= submit_tag "M'inscrire", class:"btn btn-dark" %>
         <%# <%= hidden_field_tag 'authenticity_token', 'form_authenticity_token' %> 
     <% end %>
