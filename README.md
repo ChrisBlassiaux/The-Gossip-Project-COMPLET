@@ -17,7 +17,7 @@ https://the-gossip-hacking-project.herokuapp.com/
 
 ## :top:  Progression ?
 
-→ Ce projet est en cours. 
+→ Ce projet est en terminé. 
 
 J1 - sera consacré aux premières pages de l'application : quelques pages statiques et les pages potins<br>
 J2 - sera consacré à la création d'un potin<br>
